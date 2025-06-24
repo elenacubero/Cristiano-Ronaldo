@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cristiano Ronaldo - Humildad y Grandeza</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(to right, #006600, #ff0000);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #006600;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff0000;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: #006600;
+    }
+
+    footer {
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 1rem;
+      color: #666;
+      margin-top: 3rem;
+    }
+
+    .img-center {
+      display: block;
+      margin: 1rem auto;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cristiano Ronaldo</h1>
+    <p>Un ejemplo de humildad, esfuerzo y excelencia</p>
+  </header>
+
+  <nav>
+    <a href="#infancia">Infancia</a>
+    <a href="#familia">Familia</a>
+    <a href="#carrera">Carrera</a>
+    <a href="#galeria">Galería</a>
+  </nav>
+
+  <section id="infancia">
+    <h2>Infancia</h2>
+    <p>
+      Cristiano Ronaldo nació el 5 de febrero de 1985 en Madeira, Portugal. Desde pequeño mostró una gran pasión por el fútbol, jugando sin descanso en su barrio. A pesar de las dificultades económicas, nunca dejó de luchar por su sueño.
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Cristiano_Ronaldo_2009.jpg/640px-Cristiano_Ronaldo_2009.jpg" alt="Cristiano joven" class="img-center">
+  </section>
+
+  <section id="familia">
+    <h2>Familia</h2>
+    <p>
+      Su madre, Dolores, ha sido su pilar. Cristiano ha demostrado constantemente su amor por su familia. A pesar de su fama mundial, mantiene una vida familiar sólida y presente, siendo padre de varios hijos a los que adora.
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Cristiano_Ronaldo_2015.jpg/640px-Cristiano_Ronaldo_2015.jpg" alt="Cristiano con su madre" class="img-center">
+  </section>
+
+  <section id="carrera">
+    <h2>Carrera</h2>
+    <p>
+      Su carrera comenzó en el Sporting de Lisboa, y luego brilló en el Manchester United, el Real Madrid y la Juventus. Ha ganado múltiples Balones de Oro, Champions Leagues y récords goleadores. Siempre ha sido símbolo de esfuerzo, disciplina y superación.
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Cristiano_Ronaldo_2016.jpg/640px-Cristiano_Ronaldo_2016.jpg" alt="Cristiano en el Real Madrid" class="img-center">
+  </section>
+
+  <section id="galeria">
+    <h2>Galería de Cristiano Ronaldo</h2>
+    <div class="gallery">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Cristiano_Ronaldo_2018_WC.jpg/400px-Cristiano_Ronaldo_2018_WC.jpg" alt="Cristiano Mundial">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cristiano_Ronaldo_2017.jpg/400px-Cristiano_Ronaldo_2017.jpg" alt="Cristiano Juventus">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Cristiano_Ronaldo_2020.jpg/400px-Cristiano_Ronaldo_2020.jpg" alt="Cristiano Selección">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Cristiano_Ronaldo_2021.jpg/400px-Cristiano_Ronaldo_2021.jpg" alt="Cristiano reciente">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Página dedicada a Cristiano Ronaldo. Hecha con admiración y respeto.</p>
+  </footer>
+
+  <script>
+    // Mostrar animaciones al hacer scroll
+    const sections = document.querySelectorAll('section');
+    const options = {
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
